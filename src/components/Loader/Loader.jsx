@@ -1,14 +1,15 @@
-import { InfinitySpin } from "react-loader-spinner";
+import { ClipLoader } from "react-spinners";
 import css from "./Loader.module.css";
 
 const Loader = () => {
   return (
     <div className={css.backdrop}>
-      <InfinitySpin
-        visible={true}
-        width="200"
+      <ClipLoader
         color="#4fa94d"
-        ariaLabel="infinity-spin-loading"
+        loading={true}
+        size={80}
+        aria-label="Loading Spinner"
+        data-testid="loader"
       />
     </div>
   );
