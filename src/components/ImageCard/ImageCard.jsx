@@ -7,9 +7,10 @@ const ImageCard = ({ src, alt, avg_color, openModal }) => {
       style={{ backgroundColor: avg_color, borderColor: avg_color }}
     >
       <img
-        src={src.large}
+        src={src.small}
         alt={alt}
-        onClick={() => openModal(src.large, alt)}
+        onClick={() => openModal(src.regular, alt)}
+        className={styles.image}
       />
     </div>
   );

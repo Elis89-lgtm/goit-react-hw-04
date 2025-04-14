@@ -35,7 +35,16 @@ const App = () => {
           setIsEmpty(true);
           return;
         }
-        setImages((prev) => [...prev, ...photos]); // prevImages===images
+        const normalized = photos.map((photo) => ({
+          id: photo.id,
+          src: {
+            small: photo.urls.small,
+            regular: photo.urls.regular,
+          },
+          alt: photo.alt_description || "Image",
+          avg_color: photo.color || "#cccccc",
+        }));
+        setImages((prev) => [...prev, ...normalized]);
         const totalPages = Math.ceil(total_results / per_page);
         setIsVisible(page < totalPages);
       } catch (error) {
